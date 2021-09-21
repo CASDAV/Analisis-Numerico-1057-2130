@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.8.19)  20 SEP 2021 18:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.8.19)  20 SEP 2021 20:53
 entering extended mode
 **"./Taller 2.tex"
 (Taller 2.tex
@@ -256,53 +256,79 @@ File: img//imagen5.png Graphic file (type png)
 <use img//imagen5.png>
 Package pdftex.def Info: img//imagen5.png  used on input line 73.
 (pdftex.def)             Requested size: 92.59569pt x 94.10132pt.
- [4 <./img//imagen4.png> <./img//imagen5.png>]
-<img//imagen6.png, id=35, 299.61937pt x 268.75406pt>
+<img//imagen10.png, id=30, 347.79938pt x 444.91219pt>
+File: img//imagen10.png Graphic file (type png)
+<use img//imagen10.png>
+Package pdftex.def Info: img//imagen10.png  used on input line 92.
+(pdftex.def)             Requested size: 347.79852pt x 444.91109pt.
+
+Overfull \hbox (2.79852pt too wide) in paragraph at lines 92--94
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--94
+
+ []
+
+[4 <./img//imagen4.png> <./img//imagen5.png>]
+<img//imagen11.png, id=36, 240.14719pt x 94.10156pt>
+File: img//imagen11.png Graphic file (type png)
+<use img//imagen11.png>
+Package pdftex.def Info: img//imagen11.png  used on input line 97.
+(pdftex.def)             Requested size: 240.14658pt x 94.10132pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--99
+
+ []
+
+[5 <./img//imagen10.png>]
+<img//imagen6.png, id=41, 299.61937pt x 268.75406pt>
 File: img//imagen6.png Graphic file (type png)
 <use img//imagen6.png>
-Package pdftex.def Info: img//imagen6.png  used on input line 98.
+Package pdftex.def Info: img//imagen6.png  used on input line 108.
 (pdftex.def)             Requested size: 299.61864pt x 268.7534pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--100
-
- []
-
-<img//imagen7.png, id=36, 252.945pt x 287.57437pt>
-File: img//imagen7.png Graphic file (type png)
-<use img//imagen7.png>
-Package pdftex.def Info: img//imagen7.png  used on input line 103.
-(pdftex.def)             Requested size: 252.94438pt x 287.57367pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--105
-
- []
-
-[5 <./img//imagen6.png>]
-<img//imagen8.png, id=41, 545.03625pt x 549.55313pt>
-File: img//imagen8.png Graphic file (type png)
-<use img//imagen8.png>
-Package pdftex.def Info: img//imagen8.png  used on input line 108.
-(pdftex.def)             Requested size: 345.0pt x 347.85547pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 106--110
 
  []
 
-<img//imagen9.png, id=42, 542.77782pt x 268.75406pt>
+<img//imagen7.png, id=42, 252.945pt x 287.57437pt>
+File: img//imagen7.png Graphic file (type png)
+<use img//imagen7.png>
+Package pdftex.def Info: img//imagen7.png  used on input line 113.
+(pdftex.def)             Requested size: 252.94438pt x 287.57367pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--115
+
+ []
+
+[6 <./img//imagen11.png> <./img//imagen6.png>]
+<img//imagen8.png, id=48, 545.03625pt x 549.55313pt>
+File: img//imagen8.png Graphic file (type png)
+<use img//imagen8.png>
+Package pdftex.def Info: img//imagen8.png  used on input line 118.
+(pdftex.def)             Requested size: 345.0pt x 347.85547pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--120
+
+ []
+
+<img//imagen9.png, id=49, 542.77782pt x 268.75406pt>
 File: img//imagen9.png Graphic file (type png)
 <use img//imagen9.png>
-Package pdftex.def Info: img//imagen9.png  used on input line 112.
+Package pdftex.def Info: img//imagen9.png  used on input line 122.
 (pdftex.def)             Requested size: 345.0pt x 170.83327pt.
-[6 <./img//imagen7.png>] [7 <./img//imagen8.png> <./img//imagen9.png>]
+[7 <./img//imagen7.png>] [8 <./img//imagen8.png> <./img//imagen9.png>]
 (Taller 2.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
- 3748 strings out of 478864
- 52832 string characters out of 2848660
+ 3770 strings out of 478864
+ 53282 string characters out of 2848660
  370288 words of memory out of 3000000
- 21641 multiletter control sequences out of 15000+600000
+ 21663 multiletter control sequences out of 15000+600000
  411293 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,8n,66p,337b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -318,9 +344,9 @@ AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users
 /David/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 <C:/Users/David/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 sy7.pfb>
-Output written on "Taller 2.pdf" (7 pages, 241182 bytes).
+Output written on "Taller 2.pdf" (8 pages, 469930 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
