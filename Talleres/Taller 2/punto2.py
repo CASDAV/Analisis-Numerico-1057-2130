@@ -9,67 +9,41 @@ Created on Thu Sep  9 07:48:24 2021
 # solución de sistemas de ecuaciones
 # por métodos iterativos
 
-
-
 import numpy as np
 
-
-
 # INGRESO
-A = np.array([[4,3,0],
+A = np.array([[4,3,-2],
               [3,4,-1],
               [0,-1,4]])
 
-
-
 B = np.array([0.254,-1.425,2.978])
-
-
 
 diagonal = np.array([[4,0.,0.],
                      [0.,4,0.],
                      [0.,0.,4]])
 
-
-
 superior = np.array([[4.,3,0.],
                      [0.,4,-1],
                      [0.,0.,4]])
-
-
 
 inferior = np.array([[4,0.,0.],
                      [3,4,0.],
                      [0.,-1,4]])
 
-
-
 U = superior - diagonal
-
-
 
 M = np.dot(np.linalg.inv(inferior),U);M
 
-
-
 np.linalg.eigvals(M)
-print(np.max(abs(np.linalg.eigvals(M))))
 
-
+print("EL resultado del radio espectral es: ",  np.max(abs(np.linalg.eigvals(M))))
 
 
 X0 = np.array([0.,0.,0.])
-
-
-
 tolera = 0.0000000000000001
 iteramax = 100
 
-
-
 # PROCEDIMIENTO
-
-
 
 # Gauss-Seidel
 tamano = np.shape(A)
