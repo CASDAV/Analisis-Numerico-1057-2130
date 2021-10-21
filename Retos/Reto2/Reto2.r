@@ -4,92 +4,82 @@ library(readxl)
 arch1 = read_excel("C:/Users/David/Downloads/DatosReto2.xls", sheet = "Itatira")
 arch2 = read_excel("C:/Users/David/Downloads/DatosReto2.xls", sheet = "Santa Quitéria")
 
+tempInteranArch1 = arch1$`Temp. Interna (ºC)`
+diasArch1 = arch1$`Dia Juliano`
+horasArch1 = arch1$Hora
+
+tempInteranArch2 = arch2$`Temp. Interna (ºC)`
+diasArch2 = arch2$`Dia Juliano`
+horasArch2 = arch2$Hora
+
+tamArch1 = length(tempInteranArch1)
+tamArch2 = length(tempInteranArch2)
+
 x = seq(from = 1, to = 720, by = 1)
-y = arch1$`Temp. Interna (ºC)`
+y = tempInteranArch1
 
-dias = arch1$`Dia Juliano`
-horas = arch1$Hora
-indicesIdeales = x
+# Seleccionar un 70% aleatorio de los datos para el entrenamiento 
+sample_i = sample(720, round(720*0.7))
+xTrain = x[sample_i]
+yTrain = y[sample_i]
 
-#35% de los datos
-ones = rep(1, 720)
-reduccion = sample.int(720,720*0.35)
-for (e in reduccion) {
-  ones[e] = 0
-}
+#Graficar todos los datos y también la interpolación de los datos de entrenamiento
+plot(x, y, type='l', ylab = "Temperatura interna", xlab = "Indice", col= "black")
 
-x2 = c()
-y2 = c()
-i = 1
-j = 1
+lines(spline(xTrain, yTrain, n=tamArch1), col= "purple")
 
-for (o in ones)
+interpolacion = splinefun(xTrain, yTrain)
+
+# Calcular el error absoluto de la interpolación
+error_absoluto = sum(abs(interpolacion(x) - y))
+print(error_absoluto)
+# Calcular el error relativo de la interpolación
+error_relativo = error_absoluto/sum(abs(y))
+print(error_relativo)
+
+indicesBajoCondicionesIguales = c()
+
+for(i in 1:tamArch2)
 {
-  if(o == 1)
+  for(j in 1:tamArch1)
   {
-    x2[i] = x[j]
-    y2[i] = y[j]
-    i = i + 1
-  }
-  j = j +1
-}
-
-#Graficas
-plot(x,y,type='l', ylab = "Temperatura interna", xlab = "Indice Ideal", col= "red")
-
-lines(spline(x2,y2,n=200),col= "blue")
-
-interpolacion = splinefun(x2,y2)
-
-interpolados = c()
-k = 1
-
-error = c()
-
-for(var in x)
-{
-  errorY = interpolacion(var)
-  error = c(error, abs((y[k] - errorY)/y[k]))
-  k = k + 1
-}
-
-print(error)
-interpolados2 = c()
-
-for (i in 1:length(arch2$`Dia Juliano`)) 
-{
-  dia = arch2$`Dia Juliano`[i]
-  hora = arch2$Hora[i]
-  
-  for(j in 1:720)
-  {
-    if((dias[j] == dia) && (horas[j] == hora))
+    if((diasArch1[j] == diasArch2[i]) && (horasArch1[j] == horasArch2[i]))
     {
-      interpolados2 = c(interpolados2,indicesIdeales[j])
+      indicesBajoCondicionesIguales = c(indicesBajoCondicionesIguales, j)
     }
   }
 }
 
-nuevosY = c()
-errorEstacion = c()
-z = 1
+#error_absoluto_test = c()
 
-for (variable in interpolados2) 
+xTest = indicesBajoCondicionesIguales
+yTest = c()
+# Interpolación de los datos de xTest
+for(i in indicesBajoCondicionesIguales)
 {
-  nuevosY = c(nuevosY, interpolacion(variable))
-  errorEstacion = c(errorEstacion, abs((arch2$`Temp. Interna (ºC)`[z] - nuevosY[z])/arch2$`Temp. Interna (ºC)`[z]))
-  z = z + 1
+  yTest = c(yTest, interpolacion(i))
+  #error_absoluto_test = c(error_absoluto_test, abs(yTest[i] - tempInteranArch2[i]))
 }
 
-plot(interpolados2,arch2$`Temp. Interna (ºC)`, ylab = "Temperatura interna", xlab = "Indice Calculado", type = 'l', col= "blue")
-lines(interpolados2, nuevosY, col= "red")
-print(errorEstacion)
+plot(xTest, tempInteranArch2, ylab = "Temperatura interna", xlab = "Indice", type = 'l', col= "red")
 
-maximo = 0
-media = 0
+lines(xTest, yTest, col= "blue")
 
-for (error in errorEstacion) {
-  if(error > maximo)
-    maximo = error
-  media = media + error
-}
+# Calcular el error máximo de la interpolación
+error_maximo = max(abs(yTest - tempInteranArch2))
+print(error_maximo)
+# Calcular el error mínimo de la interpolación
+error_minimo = min(abs(yTest - tempInteranArch2))
+print(error_minimo)
+# Calcular el error medio de la interpolación
+error_medio = mean(abs(yTest - tempInteranArch2))
+print(error_medio)
+# Calcular el error absoluto de la interpolación
+error_absoluto = sum(abs(yTest - tempInteranArch2))
+print(error_absoluto)
+# Calcular el error relativo de la interpolación
+error_relativo = error_absoluto/sum(abs(tempInteranArch2))
+print(error_relativo)
+# Calcular el error Cuadrático Medio de la interpolación
+error_cuadratico_medio = sqrt(sum((yTest - tempInteranArch2)^2)/length(yTest))
+print(error_cuadratico_medio)
